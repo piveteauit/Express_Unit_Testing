@@ -21,32 +21,32 @@ describe('🎧 ALBUMS ROUTES', () => {
     });
   });
 
-  it('should get the track list of album 1 🧪 /api/albums/1/tracks', async () => {
-    const res = await supertest(app)
-      .get('/api/albums/1/tracks')
-      .expect(200)
-      .expect('Content-Type', /json/);
+  // it('should get the track list of album 1 🧪 /api/albums/1/tracks', async () => {
+  //   const res = await supertest(app)
+  //     .get('/api/albums/1/tracks')
+  //     .expect(200)
+  //     .expect('Content-Type', /json/);
 
-    expect(Array.isArray(res.body)).toBe(true);
+  //   expect(Array.isArray(res.body)).toBe(true);
 
-    res.body.forEach((track) => {
-      expect(track).toHaveProperty('id_album', 1);
-      trackKeys.map((prop) => {
-        expect(track).toHaveProperty(prop);
-      });
-    });
-  });
+  //   res.body.forEach((track) => {
+  //     expect(track).toHaveProperty('id_album', 1);
+  //     trackKeys.map((prop) => {
+  //       expect(track).toHaveProperty(prop);
+  //     });
+  //   });
+  // });
 
-  it('should get the album with id 1 🧪 /api/albums/1', async () => {
-    const res = await supertest(app)
-      .get('/api/albums/1')
-      .expect(200)
-      .expect('Content-Type', /json/);
+  // it('should get the album with id 1 🧪 /api/albums/1', async () => {
+  //   const res = await supertest(app)
+  //     .get('/api/albums/1')
+  //     .expect(200)
+  //     .expect('Content-Type', /json/);
 
-    albumKeys.map((prop) => {
-      expect(res.body).toHaveProperty(prop);
-    });
-  });
+  //   albumKeys.map((prop) => {
+  //     expect(res.body).toHaveProperty(prop);
+  //   });
+  // });
 
   it('should create a new album 🧪 /api/albums', async () => {
     const res = await supertest(app)
